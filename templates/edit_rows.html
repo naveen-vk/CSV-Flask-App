@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap");
+            @media only screen and (min-width:1300px){
+                .header{
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding: 15px;
+                    width: 50%;
+                    background-color: antiquewhite;
+                    text-align: center;
+                    border-radius: 5px;
+                    font-size: 25px;
+                }
+                .size{
+                    height:90vh;
+                    display: grid;
+                    grid-template-rows: min-content 80% auto;
+                }
+                .size div{
+                    font-size: 20px;
+                }
+                input[type=text]
+                {
+                    color: #676767;
+                    height: 50px;
+                    width: 40%;
+                    padding-left: 10px;
+                    text-decoration: none;
+                    background-color:#fff;
+                    border-radius: 5px; /*up to date browsers support this, but you can add prefixes if you want*/
+                    border: 0;
+                    font-size: 20px;
+                }
+                input[type = submit] {
+                    background-color: #63BCE5;
+                    border-radius: 10px;
+                    border-color: #63BCE5;
+                    text-decoration: none;
+                    color: white;
+                    padding: 10px 20px;
+                    margin: 20px 20px;
+                    cursor: pointer;
+                    font-size: 20px;
+                }
+            }
+            @media only screen and (max-width:1299px){
+                .header{
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding: 15px;
+                    width: 50%;
+                    background-color: antiquewhite;
+                    text-align: center;
+                    border-radius: 5px;
+                }
+                .size{
+                    height:90vh;
+                    display: grid;
+                    grid-template-rows: min-content auto auto;
+                }
+                input[type=text]
+                {
+                    color: #676767;
+                    height: 28px;
+                    padding-left: 10px;
+                    text-decoration: none;
+                    background-color:#fff;
+                    border-radius: 5px; /*up to date browsers support this, but you can add prefixes if you want*/
+                    border: 0;
+                }
+                input[type = submit] {
+                    background-color: #63BCE5;
+                    border-radius: 10px;
+                    border-color: #63BCE5;
+                    text-decoration: none;
+                    color: white;
+                    padding: 10px 20px;
+                    margin: 20px 20px;
+                    cursor: pointer;
+                }
+            }
+                body{
+		            background-color: #3778C2;
+	            }
+                .edit-rows {
+                    align-items: center;
+                    padding-top: 2%;
+                    width: 75%;
+                    text-align: center;
+                    background-color: rgb(180, 214, 243);
+                    border-radius: 20px;
+                    height:90vh;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                h2{
+                    font-size: 20px;
+                }
+                .input-values .property{
+                    width:40%;
+                    display:inline-block;
+                    box-sizing:border-box;
+                    text-align:right;
+                    padding: 10px;
+                }
+                .input-values .value{
+                    text-align:left;
+                    padding-left:10px;
+                    width:40%;
+                    display:inline-block;
+                    box-sizing:border-box;
+                    padding: 10px;
+                }
+                .go-back{   
+                    color: #676767;
+                    font-size: 15px;    
+                }
+                .go-back-anchor{
+                    background-color: #63BCE5;
+                    border-radius: 10px;
+                    border: 2px solid #3778C2;
+                    padding: 20px 20px;
+                    margin-top: 10px;
+                    cursor: pointer;  
+                    height: fit-content; 
+                    text-decoration: none;
+                    color: #3778C2;
+                }
+                .container{
+                    display: grid;
+                    grid-template-columns: auto auto;
+                    width: 30%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .fa{
+                    padding-right: 5px;
+                    color: #3778C2;
+                    font-size: 30px;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    position: relative;
+                    top: 4px;
+                    right: 10px;
+                }
+                .file{
+                    display: inline-block;
+                    overflow: hidden;
+                    position: relative;
+                    padding: 5px;
+                }
+                .file input[type=file]{
+                    left: 0;
+                    opacity: 0;
+                    position: absolute;
+                    background-color: rgb(47, 94, 156);
+                    font-size: 20px;
+                    width: 90%;
+                    margin-left: 7px;
+                }
+                .btn-upload{
+                    border-color: #3778C2;
+                    color: #676767;
+                    background-color: #fff;
+                    border-radius: 5px;
+                    font-size: 20px;   
+                }
+        </style>
+    </head>
+    <body>
+        <div class="edit-rows">
+        {% if remAdd == "remove" %}
+            {% if strt_stp == "fromStart" %}
+                    <div class="size">
+                        <div><h2 class="header">Delete Rows From Start</h2></div>
+                        <div>
+                        <form action = "/deleteRows" method = "POST" enctype="multipart/form-data">
+                            <div class="file">
+                                <button class="btn-upload"> Choose File</button><input type="file" name="to_edit_file" required class="hide_file" accept=".csv">
+                            </div>
+                            <h3>
+                                Type number of seconds to be deleted from beginning in {{ file }}
+                            </h3>
+                            <p><input type="text" value = "0" name="time"> </p>
+                            <p><input type="submit" value = "Remove"></p>
+                        </form>
+                        </div>
+                        <div class="container">
+                            <div class="go-back">
+                                <a class="go-back-anchor" href="/"><i class="fa fa-home"></i>Homepage</a>
+                            </div>
+                            <div class="go-back">
+                                <a class="go-back-anchor" href="/edit"><i class="fa fa-arrow-left"></i>Back</a>
+                            </div>
+                        </div>
+                    </div>
+            {% endif %}
+            {% if strt_stp == "fromMiddle" %}
+                <div class="size">    
+                    <div><h2 class="header">Delete Rows in between</h2></div>
+                    <div>
+                    <form action = "/deleteFromMiddle" method = "POST" enctype = "multipart/form-data">
+                        <div class="file">
+                            <button class="btn-upload"> Choose File</button><input type="file" name="to_edit_file" required class="hide_file" accept=".csv">
+                        </div>
+                        <div>
+                            <h3>
+                                From
+                            </h3>
+                            <input type = "text" value = "0" name = "from_time" >
+                        </div>
+                        <div>
+                            <h3>
+                                To
+                            </h3>
+                            <input type="text" value = "1" name = "to_time" >
+                        </div>
+                        <p><input type = "submit" value = "Remove" ></p>
+                    </form>
+                    </div>
+                    <div class="container">
+                        <div class="go-back">
+                            <a class="go-back-anchor" href="/"><i class="fa fa-home"></i>Homepage</a>
+                        </div>
+                        <div class="go-back">
+                            <a class="go-back-anchor" href="/edit"><i class="fa fa-arrow-left"></i>Back</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% if strt_stp == "fromEnd" %}
+                <div class="size">    
+                    <div><h2 class="header">Delete Rows in the End</h2></div>
+                    <div>
+                    <form action = "/deleteFromEnd" method = "POST" enctype="multipart/form-data">
+                        <div class="file">
+                            <button class="btn-upload"> Choose File</button><input type="file" name="to_edit_file" required class="hide_file" accept=".csv">
+                        </div>
+                        <h3>
+                            Number of seconds needed to be deleted from end
+                        </h3>
+                        <p><input type="text" value = "0" name="time"> </p>
+                        <p><input type="submit" value = "Remove"></p>
+                    </form>
+                    </div>
+                    <div class="container">
+                        <div class="go-back">
+                            <a class="go-back-anchor" href="/"><i class="fa fa-home"></i>Homepage</a>
+                        </div>
+                        <div class="go-back">
+                            <a class="go-back-anchor" href="/edit"><i class="fa fa-arrow-left"></i>Back</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+        {% if remAdd == "add" %}
+                <h1>Feature to add rows is not pushed out yet. Stay tuned for more updates</h1>
+       {% endif %}
+        </div>
+    </body>
+</html>

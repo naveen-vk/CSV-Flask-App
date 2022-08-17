@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+             @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap");
+             @media only screen and (min-width:1300px){
+                .header{
+                    font-size: 25px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding: 15px;
+                    width: 50%;
+                    background-color: antiquewhite;
+                    text-align: center;
+                    border-radius: 5px;
+                }
+                .column-names{
+                    background-color: aliceblue;
+                    border-radius: 20px;
+                    padding:10px;
+                }
+                .column-names li{
+                    font-size: 20px;
+                    width: 50%;
+                    text-align: left;
+                    margin-left: 40%;
+                }
+                .btn-upload{
+                    font-size: larger;
+                    background-color: #63BCE5;
+                    border-radius: 10px;
+                    border-color: #63BCE5;
+                    text-decoration: none;
+                    color: white;
+                    padding: 20px 20px;
+                    margin: 5px;
+                    cursor: pointer;  
+                    height: fit-content; 
+                }
+                .no-of-columns{
+                    background-color: rgb(180, 214, 243);
+                    border-radius: 20px;
+                    padding:10px;
+                }
+                .no-of-columns li{
+                    font-size: 20px;
+                    width: 50%;
+                    text-align: left;
+                    margin-left: 40%;
+                }
+            }
+            @media only screen and (max-width:1299px){
+                .header{
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding: 15px;
+                    width: 50%;
+                    background-color: antiquewhite;
+                    text-align: center;
+                    border-radius: 5px;
+                }
+                .column-names{
+                    background-color: aliceblue;
+                    border-radius: 20px;
+                    padding:10px;
+                }
+                .column-names li{
+                    width: 50%;
+                    text-align: left;
+                    margin-left: 40%;
+                }
+                .btn-upload{
+                    background-color: #63BCE5;
+                    border-radius: 10px;
+                    border-color: #63BCE5;
+                    text-decoration: none;
+                    color: white;
+                    padding: 20px 20px;
+                    margin: 5px;
+                    cursor: pointer;  
+                    height: fit-content; 
+                }
+                .no-of-columns{
+                    background-color: rgb(180, 214, 243);
+                    border-radius: 20px;
+                    padding:10px;
+                }
+                .no-of-columns li{
+                    width: 50%;
+                    text-align: left;
+                    margin-left: 40%;
+                }
+            }
+                .table{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                body{
+		            background-color: #3778C2;
+		            height: 150%;
+	            }
+                .main {
+                    display: flex;
+                    flex: auto;
+                }                
+                .column{
+                    display: grid;
+                    grid-template-columns: auto auto;
+                    grid-template-rows: auto;
+                    gap: 10px;
+                    padding: 10px;
+                }
+                .grid-container{
+                    display: grid;
+                    grid-template-columns: 15%  auto 15%;
+                    grid-template-rows: auto;
+                    text-align: center;   
+                }
+                .footer-container{
+                    display: grid;
+                    text-align: center;
+                    align-items: center;
+                    grid-template-columns: 20% 20%;
+                    grid-template-rows: auto;
+                }
+                h2 {
+                    font-size: 20px;
+                }
+                table {
+                    background-color: rgb(180, 214, 243);
+                    margin: auto;
+                    width: 600px;
+                    border-collapse: collapse;
+                    border: 3px solid black; 
+                    border-style:solid;
+                    border-radius: 10px;
+                }
+                tr:first-child td:first-child { border-top-left-radius: 10px; }
+                tr:first-child td:last-child { border-top-right-radius: 10px; }
+                tr:last-child td:first-child { border-bottom-left-radius: 10px; }
+                tr:last-child td:last-child { border-bottom-right-radius: 10px; }
+                tr:first-child td { border-top-style: solid; }
+                tr td:first-child { border-left-style: solid; }
+
+                table thead th {
+                    padding: 8px;
+                    background-color: rgb(180, 214, 243);;
+                    font-size: large;
+                }
+                table th, table td {
+                    padding: 3px;
+                    border-width: 1px;
+                    border-style: solid;
+                    border-color: black;
+                    text-align: center;
+                }
+                table tbody th {
+                    text-align: center;
+                    font-weight: normal;
+                }
+                .left-button{
+                    float: left;
+                    width: 20%;
+                    align-items: center;
+                    text-align: center;
+                }
+                .right-button{
+                    float: right;
+                    width: 20%;
+                    align-items: center;
+                    text-align: center;
+                }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div>
+                <div class="column" id="column">
+                    <div class="column-names">
+                        <h2 class="header">Column Names</h2>
+                            {%for col in df.columns:%}
+                                <li>{{col}}</li>
+                            {%endfor%}
+                    </div>
+                    <div class="no-of-columns">
+                        <h2 class="header">Number Of Columns</h2>
+                        <li>{{df.shape[0]}}</li>
+                    </div>
+                </div>
+                <div class="grid-container">
+                    <a class="btn-upload" href="/">Homepage</a>
+                    <div class="table">
+                        {{ data|safe }}
+                    </div>
+                    <a class="btn-upload" href="#bottom">Go to Bottom</a>
+                </div>      
+            </div>
+            <div class="footer-containerr">
+                <a class="btn-upload left-button" href="/" id="bottom">Homepage</a>
+                <a class="btn-upload right-button" href="#column">Go to top of the page</a>
+            </div>   
+        </div>
+    </body>
+</html>

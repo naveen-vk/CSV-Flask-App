@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap");
+            @media only screen and (min-width:1300px){
+                .header h2 {
+                    font-size: 25px;
+                    padding: 3px;
+                    text-align: center;
+                }   
+                .btn-upload{
+                    border-color: #3778C2;
+                    color: #676767;
+                    background-color: #fff;
+                    border-radius: 5px;
+                    font-size: 20px;   
+                }
+                .add-remove-col{
+                    padding-top: 7%;
+                    padding-bottom: 7%;
+                    background-color: #b0d2e2;
+                    width: 75%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 1%;
+                    border-radius: 20px;
+                    font-size: 20px;
+                }
+                .add-remove{
+                    padding-top: 7%;
+                    padding-bottom: 7%;
+                    background-color: #b0d2e2;
+                    width: 75%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 1%;
+                    border-radius: 20px;
+                    font-size: 20px;
+                }
+                .start-stop{
+                    padding-top: 7%;
+                    padding-bottom: 7%;
+                    background-color: rgb(76, 127, 168);
+                    width: 75%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    border-radius: 20px;
+                    font-size: 20px;
+                }
+                input[type = submit] {
+                    background-color: #63BCE5;
+                    border-radius: 10px;
+                    border-color: #63BCE5;
+                    text-decoration: none;
+                    color: white;
+                    padding: 10px 20px;
+                    margin-top: 10px;
+                    margin-bottom: 1px;
+                    cursor: pointer;
+                    font-size: 20px;
+                }
+                .homepage-anchor{
+                    background-color: #63BCE5;
+                    border-radius: 10px;
+                    border-color: #63BCE5;
+                    text-decoration: none;
+                    color: white;
+                    padding: 20px 20px;
+                    margin-top: 10px;
+                    cursor: pointer;  
+                    height: fit-content; 
+                    font-size: 20px;
+                }
+            }
+            @media only screen and (max-width:1299px){
+                .header h2 {
+                    font-size: larger;
+                    padding: 3px;
+                    text-align: center;
+                }
+                .btn-upload{
+                    border-color: #3778C2;
+                    color: #676767;
+                    background-color: #fff;
+                    border-radius: 5px;
+                    font-size: 15px;   
+                }
+                .add-remove{
+                    padding-top: 7%;
+                    padding-bottom: 7%;
+                    background-color: #b0d2e2;
+                    width: 75%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 1%;
+                    border-radius: 20px;
+                }
+                .add-remove-col{
+                    padding-top: 7%;
+                    padding-bottom: 7%;
+                    background-color: #b0d2e2;
+                    width: 75%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 1%;
+                    border-radius: 20px;
+                }
+                .start-stop{
+                    padding-top: 7%;
+                    padding-bottom: 7%;
+                    background-color: rgb(76, 127, 168);
+                    width: 75%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    border-radius: 20px;
+                }
+                input[type = submit] {
+                    background-color: #63BCE5;
+                    border-radius: 10px;
+                    border-color: #63BCE5;
+                    text-decoration: none;
+                    color: white;
+                    padding: 10px 20px;
+                    margin-top: 10px;
+                    margin-bottom: 1px;
+                    cursor: pointer;
+                }
+                .homepage-anchor{
+                    background-color: #63BCE5;
+                    border-radius: 10px;
+                    border-color: #63BCE5;
+                    text-decoration: none;
+                    color: white;
+                    padding: 20px 20px;
+                    margin-top: 10px;
+                    cursor: pointer;  
+                    height: fit-content; 
+                }
+            }
+                body{
+		            background-color: #3778C2;
+		            height: 150%;
+	            }
+                .main {
+                    text-align: center;
+                    display: flex;
+                    flex-direction: row;
+                }
+                .edit-rows {
+                    align-items: center;
+                    flex: 50%;
+                    text-align: center;
+                    background-color: aliceblue; 
+                    border-radius: 20px;
+                    margin-right: 5px;   
+                    height:95vh;
+                    display: grid;
+                    grid-template-rows: auto auto auto;
+                }
+                .header{
+                    margin-left: auto;
+                    margin-right: auto;
+                    height: fit-content;
+                    width: 50%;
+                    background-color: antiquewhite;
+                    text-align: center;
+                    border-radius: 5px;
+                }
+                .edit-columns {
+                    align-items: center;
+                    flex: 50%;
+                    text-align: center;
+                    background-color: aliceblue;
+                    border-radius: 20px;
+                    height:100vh;
+                    margin-left: 5px;
+                    height:95vh;
+                    display: grid;
+                    grid-template-rows: auto auto auto;
+                }
+                .edit-columns .file{
+                    margin-top: 10px;
+                }
+                h2{
+                    font-size: 20px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+                .file{
+                    display: inline-block;
+                    overflow: hidden;
+                    position: relative;
+                    padding: 5px;
+                }
+                .file input[type=file]{
+                    left: 0;
+                    opacity: 0;
+                    position: absolute;
+                    background-color: rgb(47, 94, 156);
+                    font-size: 20px;
+                    width: 90%;
+                    margin-left: 7px;
+                }
+                .back-button{
+                    width: 30%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 20px;
+                    margin-top: 10px;
+                }
+                .edit-columns .back-button{
+                    width: 30%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 20px;
+                    margin-top: 20px;
+                }
+                input[type=text]
+                {
+                    color: #676767;
+                    height: 28px;
+                    padding-left: 10px;
+                    text-decoration: none;
+                    background-color:#fff;
+                    width: 70%;
+                    border-radius: 5px; /*up to date browsers support this, but you can add prefixes if you want*/
+                    border: 2px solid #63BCE5;
+                }
+                .input-values{
+                    align-items: center;
+                }
+                .input-values .property{
+                    width:40%;
+                    display:inline-block;
+                    box-sizing:border-box;
+                    text-align:right;
+                    padding: 10px;
+                }
+                .input-values .value{
+                    text-align:left;
+                    padding-left:10px;
+                    width:40%;
+                    display:inline-block;
+                    box-sizing:border-box;
+                    padding: 10px;
+                }
+                .edit {
+                    text-align: center;
+                }
+                .fa{
+                    padding-right: 5px;
+                    color: #fff;
+                    font-size: 30px;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    position: relative;
+                    top: 4px;
+                    right: 10px;
+                }
+                .delete-column{
+                    background-color: rgb(76, 127, 168);
+                    height: 35%;
+                    width: 90%;
+                    border-radius: 20px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 10px;
+                }
+                .reset-column{
+                    background-color: #b0d2e2;
+                    width: 90%;
+                    height: 35%;
+                    border-radius: 20px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding-bottom: 20px;
+                }
+                .hidden{
+                    height:20px;
+                    background-color: #676767;
+                }
+                .col-radio{  
+                    margin:10px;
+                    width: 40%;
+                    text-align: left;
+                    margin-left: 35%;
+                    margin-right: auto;
+                }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div class="main">
+                <div class="edit-rows">
+                    <div class="header"><h2>Edit Rows</h2></div>
+                    <div>
+                        <form action = "/editRows" method = "POST" enctype = "multipart/form-data"  class="form">
+                            <div class="add-remove">
+                                Remove or Add rows<br><br>
+                                <input type = "radio" name = "rem_add" value = "remove" checked="checked">&ensp;Remove Rows&ensp;</input>
+                                <input type = "radio" name = "rem_add" value = "add">&ensp;Add Rows</input>
+                            </div>
+                            <div class="start-stop">
+                                Position<br><br>
+                                <input type = "radio" name = "start_stop" value = "fromStart" checked="checked">&ensp;From Start&ensp;</input>
+                                <input type = "radio" name = "start_stop" value = "fromMiddle">&ensp;In Between&ensp;</input>
+                                <input type = "radio" name = "start_stop" value = "fromEnd">&ensp;From Last</input>
+                            </div>
+                            <div>
+                                <input type="submit" value = "EDIT">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="back-button">
+                        <a class="homepage-anchor" href="/"><i class="fa fa-home"></i>Homepage</a>
+                    </div>        
+                </div>
+                <div class="edit-columns">
+                    <div class="header"><h2>Edit Columns</h2></div>
+                    <div>
+                        <form action = "/editColumns" method = "POST" enctype = "multipart/form-data"  class="form">
+                            <div class="add-remove-col">
+                                <div class="col-radio"><input type = "radio" name = "edit_col" value = "delete_col" checked="checked">&emsp; Delete Column</input><br><br></div>
+                                <div class="col-radio"><input type = "radio" name = "edit_col" value = "change_name">&emsp; Change Column Name</input><br><br></div>
+                                <div class="col-radio"><input type = "radio" name = "edit_col" value = "reset_col">&emsp; Reset Column</input><br><br></div>
+                                <div class="col-radio"><input type = "radio" name = "edit_col" value = "change_index">&emsp; Change Index</input><br><br></div>
+                            </div>
+                            <div>
+                                {% if deleted == 1 %}
+                                    <h4>Column Deleted Successfully</h4>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if columnReseted == 1 %}
+                                    <h4>Column Reseted Successfully</h4>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if columnChanged == 1 %}
+                                    <h4>Column Name Changed</h4>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if indexChanged == 1 %}
+                                    <h4>Index Changed</h4>
+                                {% endif %}
+                            </div>
+                            <div>
+                                <input type="submit" value = "EDIT">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="back-button">
+                        <a class="homepage-anchor" href="/"><i class="fa fa-home"></i>Homepage</a>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </body>
+</html>

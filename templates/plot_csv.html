@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+             @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap");
+                body{
+		            background-color: #3778C4; 
+	            }
+                .img{
+                    background-color: #676767;
+                    width: 70%;
+                    height: fit-content;
+                    margin-left: auto;
+                    margin-right: auto;
+                }   
+                .img_class{
+                    display: block;
+                    width: 100%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }      
+               .fa{
+                   padding-right:0px;
+                   color: #3778C2;
+                   font-size: 30px;
+                   margin-top: auto;
+                   margin-bottom: auto;
+                   position: relative;
+                   top: 4px;
+                   right: 10px;
+               }
+               .homepage{
+                   color: #676767;
+                   font-size: 15px; 
+                   width:50%;
+                    margin-left: auto;
+                    margin-right: auto;
+               }
+               .download{
+                   color: #676767;
+                   font-size: 15px; 
+                   width:50%; 
+                   margin-left: auto;
+                   margin-right: auto;
+               }
+               .go-back-anchor{
+                   background-color: #63BCE5;
+                   border-radius: 10px;
+                   border: 2px solid #3778C2;
+                   padding: 20px 20px;
+                   margin-left: auto;
+                   margin-right: auto;
+                   cursor: pointer;  
+                   height: fit-content; 
+                   text-decoration: none;
+                   color: #3778C2;
+               }
+               .container{
+                   display: grid;
+                   grid-template-columns: auto auto;
+                   width: 50%;
+                   height: 20px;
+                   margin-top: 20px;
+                   margin-left: auto;
+                   margin-right: auto;
+               }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div  class="img">
+                <img title="The plotted Image"  class="img_class" src="{{url_for('static', filename='plot1.jpg')}}" height="70%" width="70%"> 
+            </div>
+            <div class="container">
+                <div class="homepage">
+                    <a class="go-back-anchor" href="/"><i class="fa fa-home"></i>Homepage</a>
+                </div>
+                <div class="download">
+                    <a class="go-back-anchor" href="/download"><i class="fa fa-download"></i>Download</a>
+                </div>        
+            </div> 
+        </div>
+    </body>
+</html>
